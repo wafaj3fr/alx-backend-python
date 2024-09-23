@@ -2,6 +2,7 @@
 '''A module for testing the utils module
 '''
 import unittest
+from unittest.mock import Mock, patch
 from parameterized import parameterized
 from utils import access_nested_map
 
