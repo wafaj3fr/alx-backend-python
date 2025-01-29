@@ -5,6 +5,7 @@ from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize  # Import memoize
 
+
 class TestAccessNestedMap(unittest.TestCase):
     """TestAccessNestedMap class to test access_nested_map function."""
 
@@ -23,9 +24,10 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b", "c")),
     ])
     def test_access_nested_map_exception(self, nested_map, path):
-        """Test access_nested_map function raises KeyError for invalid inputs."""
+        """Test raises KeyError for invalid inputs."""
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
 
 class TestGetJson(unittest.TestCase):
     """TestGetJson class to test get_json function."""
@@ -46,6 +48,7 @@ class TestGetJson(unittest.TestCase):
 
         mock_get.assert_called_once_with(test_url)
 
+
 class TestMemoize(unittest.TestCase):
     """TestMemoize class to test the memoize decorator."""
 
@@ -62,9 +65,10 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-        with patch.object(TestClass, "a_method", return_value=42) as mock_method:
+            with patch.object(TestClass, "a_method", return_value=42) 
+            as mock_method:
             test_instance = TestClass()
-            
+
             # First call to a_property (should call a_method)
             result1 = test_instance.a_property
             # Second call to a_property (should use cached value)
